@@ -1,5 +1,4 @@
-﻿using System;
-namespace ttpClient.Api
+﻿namespace ttpClient.Api
 {
     public static class UrlResources
     {
