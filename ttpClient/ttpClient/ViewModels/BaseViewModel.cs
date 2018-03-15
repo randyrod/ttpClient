@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Plugin.Connectivity;
+using Prism.Mvvm;
+using Prism.Navigation;
 using ttpClient.Helpers;
 
 namespace ttpClient.ViewModels
 {
-    public class BaseViewModel
+    public class BaseViewModel : BindableBase, INavigationAware
     {
         private readonly DisplayAlertHelper _displayAlertHelper;
 
@@ -39,6 +41,21 @@ namespace ttpClient.ViewModels
             if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(message)) return;
 
             await _displayAlertHelper.ShowMessage(title, message);
+        }
+
+        public virtual void OnNavigatedFrom(NavigationParameters parameters)
+        {
+            
+        }
+
+        public virtual void OnNavigatedTo(NavigationParameters parameters)
+        {
+            
+        }
+
+        public virtual void OnNavigatingTo(NavigationParameters parameters)
+        {
+            
         }
     }
 }

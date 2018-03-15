@@ -1,14 +1,25 @@
-﻿using Xamarin.Forms;
+﻿using Prism;
+using Prism.Ioc;
+using Prism.Unity;
+using ttpClient.Views;
+using Xamarin.Forms;
 
 namespace ttpClient
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        public App()
+        public App(IPlatformInitializer initializer = null) : base(initializer) { }
+
+        protected override void OnInitialized()
         {
             InitializeComponent();
+            NavigationService.NavigateAsync("NavigationPage/RegistrationPage");
+        }
 
-            MainPage = new ttpClientPage();
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<RegistrationPage>();
         }
 
         protected override void OnStart()
