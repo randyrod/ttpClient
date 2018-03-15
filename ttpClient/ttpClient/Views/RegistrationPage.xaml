@@ -14,6 +14,7 @@
             <ActivityIndicator
             IsEnabled="{Binding Loading}"
             IsRunning="{Binding Loading}"
+            IsVisible="{Binding Loading}"
             HorizontalOptions="Center"
             VerticalOptions="Center"
             Color="{StaticResource AccentColor}"/>
@@ -24,6 +25,26 @@
                 TextColor="{StaticResource AccentColor}"/>
         </StackLayout>
 
+        <StackLayout x:Name="RegisterPanel"
+                     IsVisible="{Binding RegisterVisible}"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
+
+            <Entry
+                Placeholder="Provide an identifier name"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Center"
+                Margin="20,0"
+                Text="{Binding Name, Mode=TwoWay}"/>
+            
+            <Button
+                Text="Register"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                TextColor="{StaticResource AccentColor}"
+                Command="{Binding AuthenticateCommand}"/>
+        </StackLayout>
+        
         <StackLayout x:Name="EmptyState"
                      IsVisible="{Binding IsEmpty}"
                      HorizontalOptions="Center"
@@ -36,7 +57,8 @@
                 Text="Retry"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                TextColor="{StaticResource AccentColor}"/>
+                TextColor="{StaticResource AccentColor}"
+                Command="{Binding AuthenticateCommand}"/>
         </StackLayout>
     </Grid>
     
