@@ -8,7 +8,9 @@
 
     <Grid>
         
-        <StackLayout>
+        <StackLayout
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
             <ActivityIndicator
             IsEnabled="{Binding Loading}"
             IsRunning="{Binding Loading}"
@@ -23,7 +25,9 @@
         </StackLayout>
 
         <StackLayout x:Name="EmptyState"
-                     IsVisible="{Binding IsEmpty}">
+                     IsVisible="{Binding IsEmpty}"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
             <Label 
                 Text="There was an issue authenticating"
                 HorizontalOptions="Center"
