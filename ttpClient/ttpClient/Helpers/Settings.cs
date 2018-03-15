@@ -1,4 +1,3 @@
-// Helpers/Settings.cs
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 
@@ -21,23 +20,30 @@ namespace ttpClient.Helpers
 
 		#region Setting Constants
 
-		private const string SettingsKey = "settings_key";
+        private const string PublicKeyKey = "public_key";
+        private const string PrivateKeyKey = "private_key";
+        private const string AccessTokenKey = "access_token_key";
 		private static readonly string SettingsDefault = string.Empty;
 
 		#endregion
 
+        public static string PublicKey
+        {
+            get => AppSettings.GetValueOrDefault(PublicKeyKey, SettingsDefault);
+            set => AppSettings.AddOrUpdateValue(PublicKeyKey, value);
+        }
 
-		public static string GeneralSettings
-		{
-			get
-			{
-				return AppSettings.GetValueOrDefault(SettingsKey, SettingsDefault);
-			}
-			set
-			{
-				AppSettings.AddOrUpdateValue(SettingsKey, value);
-			}
-		}
+        public static string PrivateKey
+        {
+            get => AppSettings.GetValueOrDefault(PrivateKeyKey, SettingsDefault);
+            set => AppSettings.AddOrUpdateValue(PrivateKeyKey, value);
+        }
+
+        public static string AccessToken
+        {
+            get => AppSettings.GetValueOrDefault(AccessTokenKey, SettingsDefault);
+            set => AppSettings.AddOrUpdateValue(AccessTokenKey, value);
+        }
 
 	}
 }
