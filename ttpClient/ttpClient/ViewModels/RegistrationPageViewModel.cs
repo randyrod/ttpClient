@@ -5,15 +5,12 @@ using ttpClient.Helpers;
 
 namespace ttpClient.ViewModels
 {
-    public class RegistrationPageViewModel : BaseViewModel, INavigationAware
+    public class RegistrationPageViewModel : BaseViewModel
     {
-
-        private readonly INavigationService _navigationService;
-
         private DelegateCommand _refreshCommand;
         public DelegateCommand RefreshCommand => _refreshCommand != null ? _refreshCommand : (_refreshCommand = new DelegateCommand(Authenticate));
 
-        public RegistrationPageViewModel()
+        public RegistrationPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             IsEmpty = false;
         }

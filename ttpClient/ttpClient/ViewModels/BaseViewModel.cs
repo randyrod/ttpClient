@@ -9,11 +9,16 @@ namespace ttpClient.ViewModels
 {
     public class BaseViewModel : BindableBase, INavigationAware
     {
+        protected INavigationService _navigationService;
+
         private readonly DisplayAlertHelper _displayAlertHelper;
 
-        public BaseViewModel()
+
+
+        public BaseViewModel(INavigationService navigationService)
         {
             _displayAlertHelper = new DisplayAlertHelper();
+            _navigationService = navigationService;
         }
 
         public async Task<bool> CheckInternetStatus()
