@@ -120,6 +120,9 @@ namespace ttpClient.ViewModels
                     var response = await PerformApiRequest(parameters);
 
                     if (response == null) return;
+
+                    Settings.PrivateKey = keyPair.Item1;
+                    Settings.PublicKey = keyPair.Item2;
                 }
                 else
                 {
